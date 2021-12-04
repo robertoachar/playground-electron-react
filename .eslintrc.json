@@ -1,12 +1,16 @@
 {
   "extends": [
-    "airbnb-base",
+    "airbnb",
+    "airbnb/hooks",
     "prettier"
   ],
   "parser": "@babel/eslint-parser",
   "parserOptions": {
     "ecmaVersion": 2020,
-    "sourceType": "module"
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "env": {
     "browser": true,
