@@ -9,6 +9,7 @@
     "sourceType": "module"
   },
   "env": {
+    "browser": true,
     "jest": true,
     "node": true
   },
@@ -22,7 +23,8 @@
         "singleQuote": true
       }
     ],
-    "no-console": "error",
-    "no-process-env": "error"
+    "no-console": "off",
+    "no-process-env": "error",
+    "import/prefer-default-export": "off"
   }
 }

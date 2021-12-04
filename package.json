@@ -4,36 +4,14 @@
   "description": "A playground for Electron with React.",
   "author": "Roberto Achar <robertoachar@gmail.com>",
   "homepage": "https://github.com/robertoachar/playground-electron-react#readme",
-  "keywords": [
-    "node"
-  ],
-  "main": "main.js",
-  "files": [
-    "src"
-  ],
-  "scripts": {
-    "start": "node main.js",
-    "lint": "jest --config jest-eslint.config.js",
-    "lint:watch": "jest --config jest-eslint.config.js --watch",
-    "jest": "jest --config jest-test.config.js",
-    "jest:coverage": "jest --config jest-test.config.js --coverage",
-    "jest:watch": "jest --config jest-test.config.js --watch",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+  "main": ".webpack/main",
+  "config": {
+    "forge": "./forge.config.js"
   },
-  "ntl": {
-    "descriptions": {
-      "start": "Start development mode",
-      "lint": "Run lint",
-      "lint:watch": "Start lint in watch mode",
-      "jest": "Run tests",
-      "jest:coverage": "Run tests with code coverage",
-      "jest:watch": "Start tests in watch mode",
-      "test": "Run lint + tests",
-      "test:watch": "Start lint + tests in watch mode",
-      "test:coverage": "Run lint + tests with code coverage"
-    }
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "repository": {
     "type": "git",
@@ -43,14 +21,21 @@
     "url": "https://github.com/robertoachar/playground-electron-react/issues"
   },
   "dependencies": {
-    "esm": "3.2.25"
+    "electron-squirrel-startup": "1.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.16.0",
     "@babel/eslint-parser": "7.16.3",
     "@babel/preset-env": "7.16.4",
+    "@electron-forge/cli": "6.0.0-beta.61",
+    "@electron-forge/maker-deb": "6.0.0-beta.61",
+    "@electron-forge/maker-dmg": "6.0.0-beta.61",
+    "@electron-forge/maker-squirrel": "6.0.0-beta.61",
+    "@electron-forge/plugin-webpack": "6.0.0-beta.61",
     "@types/jest": "27.0.3",
+    "@vercel/webpack-asset-relocator-loader": "1.7.0",
     "babel-jest": "27.4.2",
+    "electron": "16.0.3",
     "eslint": "8.4.0",
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-config-prettier": "8.3.0",
