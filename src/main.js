@@ -18,15 +18,27 @@ const createWindow = () => {
   });
 
   win.loadURL(environment.MAIN_WINDOW_WEBPACK_ENTRY);
+
+  return win;
 };
 
 app.whenReady().then(() => {
-  createWindow();
+  let win = createWindow();
 
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow();
+      win = createWindow();
     }
+  });
+
+  win.webContents.on('did-finish-load', () => {
+    let i = 0;
+    setInterval(() => {
+      const message = `pinging...${i}`;
+      console.log(message);
+      win.webContents.send('ping', message);
+      i += 1;
+    }, 300);
   });
 });
 
